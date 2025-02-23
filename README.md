@@ -28,5 +28,5 @@ Contributions are welcome! If you would like to improve this project:
 This project is licensed under the Apache 2.0 License.
 
 ## Contact
-For any inquiries, feel free to open an issue or contact me at renzz2711@gmail.com.
+For any inquiries, feel free to open an issue or contact me at renzz2711@gmail.com
 
