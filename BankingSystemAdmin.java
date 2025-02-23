@@ -10,7 +10,7 @@ public class BankingSystemAdmin extends JFrame {
 
     private Map<Integer, Account> accounts = new HashMap<>();
     private int nextAccountNumber = 1;
-
+// for fuck sake wag puro commit
     private JTextArea outputArea;
     private JButton addButton, editButton, deleteButton, viewButton, exitButton;
 
