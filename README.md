@@ -30,3 +30,4 @@ This project is licensed under the Apache 2.0 License.
 ## Contact
 For any inquiries, feel free to open an issue or contact me at renzz2711@gmail.com
 
+[![GitHub forks](https://img.shields.io/github/forks/Mojang/brigadier.svg?style=social&label=Fork)](https://github.com/Mojang/brigadier/fork) [![GitHub stars](https://img.shields.io/github/stars/Mojang/brigadier.svg?style=social&label=Stars)](https://github.com/Mojang/brigadier/stargazers)
