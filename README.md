@@ -1,4 +1,4 @@
-# Banking System [![License] (https://img.shields.io/github/license/Mojang/brigadier.svg)]
+# Banking System
 
 A simple banking system built with Java, featuring a user interface and admin functionalities. This project demonstrates basic banking operations such as account creation, balance inquiry, deposits, and withdrawals.
 
