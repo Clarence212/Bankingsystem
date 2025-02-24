@@ -14,7 +14,7 @@ A simple banking system built with Java, featuring a user interface and admin fu
 - Java Runtime Environment (JRE)
 - A Java IDE (Eclipse, IntelliJ IDEA, or VS Code) (Optional)
 
-## Code Preview
+## Peek
 Below is a brief preview of the project's main functionality:
 
 ```java
