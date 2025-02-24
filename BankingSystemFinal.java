@@ -5,16 +5,13 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-//4th
+// putangina
 public class BankingSystemFinal extends JFrame {
-
     private static final String USERNAME = "user";
     private static final String PASSWORD = "pass";
-
     private static double balance = 0;
     private static double loanAmount = 0;
     private static LocalDate loanDeadline;
-
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JTextArea outputArea;
@@ -25,12 +22,12 @@ public class BankingSystemFinal extends JFrame {
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
         showLoginScreen();
     }
 
     private void showLoginScreen() {
         JPanel loginPanel = new JPanel(new GridBagLayout());
+        loginPanel.setBackground(Color.WHITE);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -46,7 +43,9 @@ public class BankingSystemFinal extends JFrame {
         passwordField = new JPasswordField(15);
 
         loginButton = new JButton("Login");
-
+        loginButton.setBackground(new Color(0, 102, 204));
+        loginButton.setForeground(Color.WHITE);
+        
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
@@ -74,12 +73,10 @@ public class BankingSystemFinal extends JFrame {
         loginButton.addActionListener(e -> {
             String username = usernameField.getText();
             String password = new String(passwordField.getPassword());
-
             if (username.equals(USERNAME) && password.equals(PASSWORD)) {
                 showBankingInterface();
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid username or password.", "Login Failed",
-                        JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Invalid username or password.", "Login Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -89,21 +86,23 @@ public class BankingSystemFinal extends JFrame {
         repaint();
     }
 
-    // Main Banking Interface
     private void showBankingInterface() {
         JPanel mainPanel = new JPanel(new BorderLayout());
-
+        mainPanel.setBackground(Color.WHITE);
         outputArea = new JTextArea();
         outputArea.setEditable(false);
+        outputArea.setBackground(Color.WHITE);
         JScrollPane scrollPane = new JScrollPane(outputArea);
-
+        
         JPanel buttonPanel = new JPanel(new GridLayout(2, 3, 10, 10));
-        withdrawButton = new JButton("Withdraw");
-        depositButton = new JButton("Deposit");
-        loanButton = new JButton("Loan");
-        balanceButton = new JButton("Check Balance");
-        helpdeskButton = new JButton("Helpdesk");
-        exitButton = new JButton("Exit");
+        buttonPanel.setBackground(Color.WHITE);
+        
+        withdrawButton = createStyledButton("Withdraw");
+        depositButton = createStyledButton("Deposit");
+        loanButton = createStyledButton("Loan");
+        balanceButton = createStyledButton("Check Balance");
+        helpdeskButton = createStyledButton("Helpdesk");
+        exitButton = createStyledButton("Exit");
 
         buttonPanel.add(withdrawButton);
         buttonPanel.add(depositButton);
@@ -128,7 +127,16 @@ public class BankingSystemFinal extends JFrame {
         repaint();
     }
 
-    // Withdraw Method
+    private JButton createStyledButton(String text) {
+        JButton button = new JButton(text);
+        button.setBackground(new Color(0, 102, 204));
+        button.setForeground(Color.WHITE);
+        button.setFocusPainted(false);
+        button.setFont(new Font("Arial", Font.BOLD, 12));
+        return button;
+    }
+
+    // Withdraw
     private void withdraw() {
         String input = JOptionPane.showInputDialog(this, "Enter withdrawal amount:");
         try {
@@ -145,7 +153,7 @@ public class BankingSystemFinal extends JFrame {
         }
     }
 
-    // Deposit Method
+    // Deposit
     private void deposit() {
         String input = JOptionPane.showInputDialog(this, "Enter deposit amount:");
         try {
@@ -162,9 +170,7 @@ public class BankingSystemFinal extends JFrame {
         }
     }
 
-    // Loan Method (Restored Loan Repayment Date)
-    // Loan Method (Updated without Repayment Deadline)
-// Loan Method (Updated with Repayment Deadline Calculation)
+    // Loan 
 private void loan() {
     String amountInput = JOptionPane.showInputDialog(this, "Enter loan amount:");
 
@@ -172,7 +178,6 @@ private void loan() {
         double amount = Double.parseDouble(amountInput);
 
         if (amount > 0) {
-            // Ask user how many months they want to pay the loan
             String monthsInput = JOptionPane.showInputDialog(this, "How many months would you like to pay your loan?");
             int months = Integer.parseInt(monthsInput);
 
@@ -180,11 +185,9 @@ private void loan() {
                 double monthlyPayment = amount / months;
                 loanAmount += amount;
                 balance += amount;
-
-                // Calculate repayment deadline based on current date and number of months
                 LocalDate repaymentDate = LocalDate.now().plusMonths(months);
 
-                loanDeadline = repaymentDate; // Set the repayment deadline
+                loanDeadline = repaymentDate;
                 outputArea.append("Loan of ₱" + amount + " approved.\n");
                 outputArea.append("Your monthly payment will be: ₱" + String.format("%.2f", monthlyPayment) + " for " + months + " months.\n");
                 outputArea.append("Repayment deadline: " + repaymentDate.getMonth() + " " + repaymentDate.getYear() + ".\n");
@@ -200,7 +203,6 @@ private void loan() {
     }
 }
 
-    // Check Balance Method
     private void checkBalance() {
         outputArea.append("Your current balance is: ₱" + balance + "\n");
 
@@ -231,7 +233,6 @@ private void loan() {
             if (loanAmount > 0) {
                 outputArea.append("Your current loan amount: ₱" + loanAmount + "\n");
     
-                // Display the repayment deadline with month and year
                 if (loanDeadline != null) {
                     outputArea.append("Repayment deadline: " + loanDeadline.getMonth() + " " + loanDeadline.getYear() + "\n");
                 } else {
@@ -241,7 +242,6 @@ private void loan() {
                 outputArea.append("No active loans.\n");
             }
         } else if (choice == 2) {
-            // When "Contact Us" option is selected
             JOptionPane.showMessageDialog(this, 
                 "For more inquiries, you can email us at silkroadbank@gmail.com", 
                 "Contact Us", JOptionPane.INFORMATION_MESSAGE);
