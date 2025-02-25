@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-// putangina
+// Srb! abbrev pag ganyan
 public class BankingSystemFinal extends JFrame {
     private static final String USERNAME = "user";
     private static final String PASSWORD = "pass";
@@ -18,7 +18,7 @@ public class BankingSystemFinal extends JFrame {
     private JButton loginButton, withdrawButton, depositButton, loanButton, balanceButton, exitButton, helpdeskButton;
 
     public BankingSystemFinal() {
-        setTitle("Silk Road Bank");
+        setTitle("SrB Co.");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
