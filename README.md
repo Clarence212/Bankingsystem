@@ -18,13 +18,7 @@ A simple banking system built with Java, featuring a user interface and admin fu
 Below is a brief preview of the project's main functionality:
 
 ```java
-import javax.swing.*;
-import java.awt.*;
 
-public class BankingSystemFinal extends JFrame {
-    private static final String USERNAME = "user";
-    private static final String PASSWORD = "pass";
-    private static double balance = 0;
     
     public BankingSystemFinal() {
         setTitle("Silk Road Bank");
