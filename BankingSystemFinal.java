@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-// Srb! abbrev pag ganyan
+
 public class BankingSystemFinal extends JFrame {
     private static final String USERNAME = "user";
     private static final String PASSWORD = "pass";
